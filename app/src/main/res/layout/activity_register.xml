@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.LoginActivity">
+    tools:context=".authentication.login.LoginActivity">
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -70,6 +70,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_enter_name">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
@@ -103,6 +104,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_enter_email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/EmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
@@ -136,6 +138,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_enter_password">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
@@ -169,6 +172,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_confirmation_password">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ConfPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:ems="10"
@@ -210,6 +214,19 @@
             android:layout_marginStart="4dp"
             app:layout_constraintStart_toEndOf="@id/tv_have_account"
             app:layout_constraintTop_toTopOf="@id/tv_have_account"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

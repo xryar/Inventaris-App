@@ -17,4 +17,8 @@
     <string name="forgot_your_password">Forgot your Password?</string>
     <string name="login_info">Login to continue your journey</string>
     <string name="welcome_back">Welcome Back,</string>
+    
+    <string name="positive_button_register">Login</string>
+    <string name="positive_button_failed">Coba lagi</string>
+    <string name="positive_button_login">Ok</string>
 </resources>
