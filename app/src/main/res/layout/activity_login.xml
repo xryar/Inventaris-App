@@ -37,7 +37,8 @@
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_account_info"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_account_info"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_enter_name"

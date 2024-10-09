@@ -193,7 +193,7 @@
             android:id="@+id/tv_have_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alredy_have_account"
+            android:text="@string/already_have_account"
             android:textSize="14sp"
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"
