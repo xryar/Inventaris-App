@@ -1,7 +1,6 @@
 package com.example.inventarisapp
 
 import android.content.Context
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.inventarisapp.authentication.login.LoginViewModel

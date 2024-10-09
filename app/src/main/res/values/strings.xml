@@ -20,5 +20,5 @@
     
     <string name="positive_button_register">Login</string>
     <string name="positive_button_failed">Coba lagi</string>
-    <string name="positive_button_login">Ok</string>
+    <string name="positive_button_login">OK</string>
 </resources>

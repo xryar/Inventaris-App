@@ -1,10 +1,8 @@
 package com.example.inventarisapp.authentication.login
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.inventarisapp.data.UserRepository
 import com.example.inventarisapp.data.api.ApiConfig
