@@ -28,4 +28,7 @@
     <string name="welcome">Welcome</string>
     <string name="add_product">Add Product</string>
     <string name="history">History</string>
+    <string name="nama_product">Nama Product</string>
+    <string name="date">20/20/2020</string>
+    <string name="quantity">200</string>
 </resources>
