@@ -1,4 +1,4 @@
-package com.example.inventarisapp
+package com.example.inventarisapp.ui.customdialog
 
 import android.app.AlertDialog
 import android.app.DatePickerDialog
