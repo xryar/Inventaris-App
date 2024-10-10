@@ -24,4 +24,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="plus_add_product">+ Add Product</string>
+    <string name="greeting1">Hi,</string>
+    <string name="welcome">Welcome</string>
+    <string name="add_product">Add Product</string>
+    <string name="history">History</string>
 </resources>

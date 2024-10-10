@@ -1,4 +1,4 @@
-package com.example.inventarisapp.ui.dashboard
+package com.example.inventarisapp.ui.history
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
