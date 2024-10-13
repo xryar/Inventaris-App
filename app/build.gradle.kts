@@ -62,4 +62,6 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation (libs.androidx.datastore.preferences)
+
+    implementation (libs.glide)
 }
