@@ -1,6 +1,7 @@
 package com.example.inventarisapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,7 @@ class HomeFragment : Fragment() {
     private fun setupViewModel(){
         val tokenSession = TokenSession(requireActivity().application)
         val token = tokenSession.passToken().toString()
+        Log.d("TokenSession", "Retrieved Token: Bearer $token")
         viewModel.getProducts("Bearer $token")
         //disini loading(true)
         viewModel.getAllProducts.observe(viewLifecycleOwner){ allProducts ->
@@ -76,10 +78,10 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        val tokenSession = TokenSession(requireActivity().application)
-        val token = tokenSession.passToken().toString()
-        viewModel.getProducts("Bearer $token")
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        val tokenSession = TokenSession(requireActivity().application)
+//        val token = tokenSession.passToken().toString()
+//        viewModel.getProducts("Bearer $token")
+//    }
 }
