@@ -30,7 +30,7 @@ class HomeViewModel (private val repository: UserRepository) : ViewModel() {
             override fun onResponse(call: Call<AllProductsResponse>, response: Response<AllProductsResponse>) {
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null){
-                    allProducts.value = ArrayList(responseBody.products)
+                    allProducts.value = ArrayList(response.body()?.products ?: emptyList())
                 }else{
                     Log.d(TAG, "Error : ${response.message()}")
                     Log.d(TAG, "Error Body: ${response.errorBody()?.string()}")

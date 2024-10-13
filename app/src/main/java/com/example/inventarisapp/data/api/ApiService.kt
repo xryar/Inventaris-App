@@ -26,6 +26,6 @@ interface ApiService {
 
     @GET("products")
     fun products(
-        @Header("Authorization") token: String
+        @Header("Authorization")token: String
     ): Call <AllProductsResponse>
 }
