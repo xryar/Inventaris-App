@@ -8,6 +8,7 @@ import com.example.inventarisapp.authentication.register.RegisterViewModel
 import com.example.inventarisapp.data.UserRepository
 import com.example.inventarisapp.data.di.Injection
 import com.example.inventarisapp.ui.home.HomeViewModel
+import com.example.inventarisapp.ui.upload.UploadViewModel
 
 class ViewModelFactory(private val repository: UserRepository):
 ViewModelProvider.NewInstanceFactory(){
@@ -26,6 +27,9 @@ ViewModelProvider.NewInstanceFactory(){
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) ->{
                 HomeViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(UploadViewModel::class.java) -> {
+                UploadViewModel() as T
             }
             else -> throw IllegalArgumentException("Unknown viewModel Class: " +modelClass.name)
         }

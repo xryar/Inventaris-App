@@ -1,5 +1,6 @@
 package com.example.inventarisapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.ui.customdialog.CustomDialogFragment
 import com.example.inventarisapp.databinding.FragmentHomeBinding
 import com.example.inventarisapp.ui.adapter.HistoryAdapter
+import com.example.inventarisapp.ui.upload.UploadActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,7 +34,8 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         binding.btnAddProduct.setOnClickListener {
-            showDialog(" ", true)
+            val intent = Intent(requireContext(), UploadActivity::class.java)
+            requireActivity().startActivity(intent)
         }
 
         viewModel.getSession().observe(viewLifecycleOwner) { user ->
