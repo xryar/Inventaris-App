@@ -39,11 +39,11 @@ interface ApiService {
     @POST("products")
     fun sendProducts(
         @Header("Authorization") token: String,
-        @Part file: MultipartBody.Part,
+        @Part image: MultipartBody.Part,
         @Part("productName") productName: RequestBody,
         @Part("category") category: RequestBody,
         @Part("quantity") quantity: RequestBody,
         @Part("price") price: RequestBody,
         @Part("date") date: RequestBody,
-    ): Call <Data>
+    ): Call <UploadResponse>
 }

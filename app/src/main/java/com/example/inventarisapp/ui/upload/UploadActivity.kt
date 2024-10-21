@@ -13,7 +13,6 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.inventarisapp.ViewModelFactory
 import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.databinding.ActivityUploadBinding
@@ -22,6 +21,7 @@ import com.example.inventarisapp.utils.getImageUri
 import com.example.inventarisapp.utils.reduceFileImage
 import com.example.inventarisapp.utils.uriToFile
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -95,18 +95,18 @@ class UploadActivity : AppCompatActivity() {
             val tokenSession = TokenSession(this)
             val token = tokenSession.passToken().toString()
 
-            val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+            val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
             val multipartBody = MultipartBody.Part.createFormData(
-                "photo",
+                "image",
                 imageFile.name,
                 requestImageFile
             )
 
             val productName = binding.edTitle.text.toString().toRequestBody("text/plain".toMediaType())
             val category = selectedCategory.toRequestBody("text/plain".toMediaType())
+            val date = selectedDate.toString().toRequestBody("text/plain".toMediaType())
             val quantity = binding.edQuantity.text.toString().toRequestBody("text/plain".toMediaType())
             val price = binding.edPrice.text.toString().toRequestBody("text/plain".toMediaType())
-            val date = selectedDate.toString().toRequestBody("text/plain".toMediaType())
 
             showLoading(true)
             viewModel.uploadData(
@@ -149,9 +149,8 @@ class UploadActivity : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        val datePickerDialog =
-            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            val selectedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay)
+        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+            selectedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay)
             binding.textDate.text = selectedDate
         }, year, month, day)
 
