@@ -67,7 +67,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/NameEditText"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
             tools:ignore="SpeakableTextPresentCheck"/>
@@ -101,7 +101,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/PasswordEditText"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             tools:ignore="SpeakableTextPresentCheck"/>
