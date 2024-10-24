@@ -39,6 +39,7 @@ class UploadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val categoryList = listOf(
             "Groceries", "Food", "Utilities", "Shopping",
