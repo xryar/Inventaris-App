@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inventarisapp.ViewModelFactory
 import com.example.inventarisapp.authentication.login.TokenSession
-import com.example.inventarisapp.ui.customdialog.CustomDialogFragment
 import com.example.inventarisapp.databinding.FragmentHomeBinding
 import com.example.inventarisapp.ui.adapter.HistoryAdapter
 import com.example.inventarisapp.ui.upload.UploadActivity
@@ -50,11 +49,6 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    private fun showDialog(category: String, isCategoryEditable: Boolean) {
-        val dialog = CustomDialogFragment.newInstance(category, isCategoryEditable)
-        dialog.show(requireActivity().supportFragmentManager, "CustomDialog")
-    }
-
     private fun setupRecyclerView(){
         binding.apply {
             rvHistoryHome.layoutManager = LinearLayoutManager(activity)
@@ -81,10 +75,4 @@ class HomeFragment : Fragment() {
         }
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        val tokenSession = TokenSession(requireActivity().application)
-//        val token = tokenSession.passToken().toString()
-//        viewModel.getProducts("Bearer $token")
-//    }
 }

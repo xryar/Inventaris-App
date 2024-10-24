@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Inventaris App</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_history">History</string>
+    <string name="title_profile">Profile</string>
     <string name="create_your_account">Create Your Account</string>
     <string name="register_info">Create your account to start journey</string>
     <string name="username">Username</string>
@@ -31,4 +31,18 @@
     <string name="nama_product">Nama Product</string>
     <string name="date">20/20/2020</string>
     <string name="quantity">200</string>
+    <string name="logout">Logout</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="product_name">Nama barang</string>
+    <string name="input_product_name">Masukkan Nama Barang</string>
+    <string name="category">Kategori</string>
+    <string name="date_info">Tanggal</string>
+    <string name="quantity_info">Jumlah</string>
+    <string name="input_quantity">Masukkan Jumlah</string>
+    <string name="price">Harga</string>
+    <string name="input_price">Masukkan Harga</string>
+    <string name="send">Kirim</string>
+    <string name="input_date">Atur Tanggal</string>
 </resources>
