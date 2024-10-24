@@ -31,4 +31,17 @@
     <string name="nama_product">Nama Product</string>
     <string name="date">20/20/2020</string>
     <string name="quantity">200</string>
+    <string name="logout">Logout</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="product_name">Nama barang</string>
+    <string name="input_product_name">Masukkan Nama Barang</string>
+    <string name="category">Kategori</string>
+    <string name="date_info">Tanggal</string>
+    <string name="quantity_info">Jumlah</string>
+    <string name="input_quantity">Masukkan Jumlah</string>
+    <string name="price">Harga</string>
+    <string name="input_price">Masukkan Harga</string>
+    <string name="send">Kirim</string>
 </resources>
