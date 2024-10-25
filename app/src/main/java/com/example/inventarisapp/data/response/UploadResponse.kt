@@ -19,9 +19,6 @@ data class UploadResponse(
 
 data class Data(
 
-	@field:SerializedName("date")
-	val date: String,
-
 	@field:SerializedName("image")
 	val image: String,
 
@@ -39,4 +36,5 @@ data class Data(
 
 	@field:SerializedName("productName")
 	val productName: String
+
 )

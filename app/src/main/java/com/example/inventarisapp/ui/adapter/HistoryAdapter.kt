@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.inventarisapp.R
 import com.example.inventarisapp.data.response.ProductsItem
 import com.example.inventarisapp.databinding.ListHistoryBinding
+import com.example.inventarisapp.utils.DateUtils
 
 class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
@@ -42,8 +44,23 @@ class HistoryAdapter: RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
     class HistoryViewHolder (private val _binding: ListHistoryBinding): RecyclerView.ViewHolder(_binding.root) {
         fun bind(products: ProductsItem){
             _binding.tvInfo.text = products.productName
-            _binding.tvDate.text = products.date
+            _binding.tvDate.text = DateUtils.formatDateString(products.date)
             _binding.tvQuantity.text = products.quantity.toString()
+
+            val categoryIcon = when(products.category){
+                "Elektronik" -> R.drawable.elektronik
+                "Pakaian" -> R.drawable.pakaian
+                "Makanan dan Minuman" -> R.drawable.makanan
+                "Alat Tulis dan Perlengkapan Kantor" -> R.drawable.peralatankantor
+                "Peralatan Rumah Tangga" -> R.drawable.peralatanrumah
+                "Bahan Bangunan" -> R.drawable.bahanbangunan
+                "Kendaraan dan Aksesori" -> R.drawable.kendaraan
+                "Peralatan Olahraga" -> R.drawable.peralatanolahraga
+                "Mainan dan Hobi" -> R.drawable.mainan
+                "Kesehatan dan Kecantikan" -> R.drawable.cosmetic
+                    else -> R.drawable.defaultimage
+            }
+            _binding.ivIcon.setImageResource(categoryIcon)
         }
     }
 

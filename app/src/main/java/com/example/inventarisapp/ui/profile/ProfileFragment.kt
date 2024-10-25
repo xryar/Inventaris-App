@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
+import com.example.inventarisapp.R
 import com.example.inventarisapp.ViewModelFactory
 import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.databinding.FragmentProfileBinding
@@ -27,6 +29,10 @@ class ProfileFragment : Fragment() {
         setupViewModel()
         setupAction()
 
+        Glide.with(this)
+            .load(R.drawable.defaultprofile)
+            .into(binding.ivPhoto)
+
         return binding.root
     }
 
@@ -34,6 +40,7 @@ class ProfileFragment : Fragment() {
         viewModel.getSession().observe(viewLifecycleOwner) { user ->
             binding.tvUsername.text = user.username
             binding.tvEmail.text = user.email
+            binding.tvRole.text = user.role
         }
     }
 

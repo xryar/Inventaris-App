@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                             if (response.error) {
                                 showErrorDialog(response.message)
                             } else {
-                                viewModel.saveSession(UserModel(response.user.username, response.user.email, "", true))
+                                viewModel.saveSession(UserModel(response.user.username, response.user.email, "", response.user.role, true))
                                 viewModel.login()
                                 saveToken(response.token)
                                 showSuccessDialog(response.message)

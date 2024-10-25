@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.inventarisapp.data.api.ApiConfig
-import com.example.inventarisapp.data.response.Data
 import com.example.inventarisapp.data.response.UploadResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -24,12 +23,11 @@ class UploadViewModel: ViewModel() {
         productName: RequestBody,
         category: RequestBody,
         quantity: RequestBody,
-        price: RequestBody,
-        date: RequestBody
+        price: RequestBody
     ) {
         val client = ApiConfig.getApiService().sendProducts(
             token, multipartBody, productName, category,
-            quantity, price, date
+            quantity, price
         )
 
         client.enqueue(object : Callback<UploadResponse> {

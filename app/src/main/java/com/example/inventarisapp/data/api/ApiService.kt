@@ -1,7 +1,6 @@
 package com.example.inventarisapp.data.api
 
 import com.example.inventarisapp.data.response.AllProductsResponse
-import com.example.inventarisapp.data.response.Data
 import com.example.inventarisapp.data.response.LoginRequest
 import com.example.inventarisapp.data.response.LoginResponse
 import com.example.inventarisapp.data.response.RegisterRequest
@@ -16,7 +15,6 @@ import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import retrofit2.http.Query
 
 interface ApiService {
 
@@ -44,6 +42,5 @@ interface ApiService {
         @Part("category") category: RequestBody,
         @Part("quantity") quantity: RequestBody,
         @Part("price") price: RequestBody,
-        @Part("date") date: RequestBody,
     ): Call <UploadResponse>
 }

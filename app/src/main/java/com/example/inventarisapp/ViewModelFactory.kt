@@ -7,6 +7,7 @@ import com.example.inventarisapp.authentication.login.LoginViewModel
 import com.example.inventarisapp.authentication.register.RegisterViewModel
 import com.example.inventarisapp.data.UserRepository
 import com.example.inventarisapp.data.di.Injection
+import com.example.inventarisapp.ui.history.HistoryViewModel
 import com.example.inventarisapp.ui.home.HomeViewModel
 import com.example.inventarisapp.ui.profile.ProfileViewModel
 import com.example.inventarisapp.ui.upload.UploadViewModel
@@ -34,6 +35,9 @@ ViewModelProvider.NewInstanceFactory(){
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) ->{
+                HistoryViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown viewModel Class: " +modelClass.name)
         }

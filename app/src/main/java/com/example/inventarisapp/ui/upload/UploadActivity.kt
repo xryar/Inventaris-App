@@ -1,9 +1,7 @@
 package com.example.inventarisapp.ui.upload
 
 import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.icu.util.Calendar
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -25,6 +23,9 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class UploadActivity : AppCompatActivity() {
 
@@ -42,17 +43,17 @@ class UploadActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val categoryList = listOf(
-            "Groceries", "Food", "Utilities", "Shopping",
-            "Transportation", "Mobile Phone", "Rent", "Entertainment",
-            "Health", "Other"
+            "Elektronik", "Pakaian", "Makanan dan Minuman", "Alat Tulis dan Perlengkapan Kantor",
+            "Peralatan Rumah Tangga", "Bahan Bangunan", "Kendaraan dan Aksesori", "Peralatan Olahraga",
+            "Mainan dan Hobi", "Kesehatan dan Kecantikan"
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categoryList)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spCategory.adapter = adapter
 
-        binding.labelDate.setOnClickListener { showDatePickerDialog() }
-
+        selectedDate = getCurrentDate()
+        binding.textDate.text = selectedDate
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
         binding.btnSave.setOnClickListener { uploadData() }
@@ -105,7 +106,6 @@ class UploadActivity : AppCompatActivity() {
 
             val productName = binding.edTitle.text.toString().toRequestBody("text/plain".toMediaType())
             val category = selectedCategory.toRequestBody("text/plain".toMediaType())
-            val date = selectedDate.toString().toRequestBody("text/plain".toMediaType())
             val quantity = binding.edQuantity.text.toString().toRequestBody("text/plain".toMediaType())
             val price = binding.edPrice.text.toString().toRequestBody("text/plain".toMediaType())
 
@@ -116,8 +116,7 @@ class UploadActivity : AppCompatActivity() {
                 productName,
                 category,
                 quantity,
-                price,
-                date
+                price
             )
             viewModel._uploadData.observe(this) {
                 showLoading(false)
@@ -144,18 +143,10 @@ class UploadActivity : AppCompatActivity() {
         }
     }
 
-    private fun showDatePickerDialog() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            selectedDate = String.format("%04d-%02d-%02d", selectedYear, selectedMonth + 1, selectedDay)
-            binding.textDate.text = selectedDate
-        }, year, month, day)
-
-        datePickerDialog.show()
+    private fun getCurrentDate(): String{
+        val currentDate = Date()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        return dateFormat.format(currentDate)
     }
 
     private fun showLoading(isLoading: Boolean){
