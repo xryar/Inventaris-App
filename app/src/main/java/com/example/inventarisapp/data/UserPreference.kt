@@ -20,6 +20,10 @@ class UserPreference private constructor(private val dataStore:
     suspend fun saveSession(user: UserModel){
         dataStore.edit { preferences ->
             preferences[USERNAME_KEY] = user.username
+            preferences[EMAIL_KEY] = user.email
+            preferences[PASSWORD_KEY] = user.password
+            preferences[ROLE_KEY] = user.role
+            preferences[IS_LOGIN_KEY] = user.isLogin
         }
     }
 
@@ -29,6 +33,7 @@ class UserPreference private constructor(private val dataStore:
                 preferences[USERNAME_KEY] ?: "",
                 preferences[EMAIL_KEY] ?:"",
                 preferences[PASSWORD_KEY] ?: "",
+                preferences[ROLE_KEY] ?: "",
                 preferences[IS_LOGIN_KEY] ?: false
             )
         }
@@ -53,6 +58,7 @@ class UserPreference private constructor(private val dataStore:
         private val USERNAME_KEY = stringPreferencesKey("username")
         private val EMAIL_KEY = stringPreferencesKey("email")
         private val PASSWORD_KEY = stringPreferencesKey("password")
+        private val ROLE_KEY = stringPreferencesKey("role")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
 
         fun getInstance(dataStore: DataStore<Preferences>):

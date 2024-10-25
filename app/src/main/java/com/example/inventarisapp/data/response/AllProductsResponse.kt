@@ -1,6 +1,8 @@
 package com.example.inventarisapp.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class AllProductsResponse(
 
@@ -8,6 +10,7 @@ data class AllProductsResponse(
 	val products: List<ProductsItem>
 )
 
+@Parcelize
 data class ProductsItem(
 
 	@field:SerializedName("date")
@@ -42,4 +45,4 @@ data class ProductsItem(
 
 	@field:SerializedName("updatedAt")
 	val updatedAt: String
-)
+) : Parcelable

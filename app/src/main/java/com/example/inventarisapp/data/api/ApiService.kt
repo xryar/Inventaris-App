@@ -44,6 +44,5 @@ interface ApiService {
         @Part("category") category: RequestBody,
         @Part("quantity") quantity: RequestBody,
         @Part("price") price: RequestBody,
-        @Part("date") date: RequestBody,
     ): Call <UploadResponse>
 }

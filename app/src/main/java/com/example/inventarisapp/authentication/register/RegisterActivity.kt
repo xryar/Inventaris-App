@@ -55,7 +55,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.PasswordEditText.text.toString()
             val confPassword = binding.ConfPasswordEditText.text.toString()
 
-            viewModel.saveSession(UserModel(username, email, password, false))
+            viewModel.saveSession(UserModel(username, email, password, "", false))
 
             viewModel.setRegister(username, email, password, confPassword)
             showLoading(true)

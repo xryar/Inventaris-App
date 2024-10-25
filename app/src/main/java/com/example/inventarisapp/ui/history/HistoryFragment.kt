@@ -1,4 +1,4 @@
-package com.example.inventarisapp.ui.home
+package com.example.inventarisapp.ui.history
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,16 +13,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inventarisapp.ViewModelFactory
 import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.data.response.ProductsItem
-import com.example.inventarisapp.databinding.FragmentHomeBinding
+import com.example.inventarisapp.databinding.FragmentHistoryBinding
 import com.example.inventarisapp.ui.adapter.HistoryAdapter
 import com.example.inventarisapp.ui.detail.DetailActivity
-import com.example.inventarisapp.ui.upload.UploadActivity
 import com.example.inventarisapp.utils.DateUtils
 
-class HomeFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-    private val viewModel by viewModels <HomeViewModel>{
+    private lateinit var binding: FragmentHistoryBinding
+    private val viewModel by viewModels<HistoryViewModel> {
         ViewModelFactory.getInstance(requireActivity().application)
     }
     private val adapter = HistoryAdapter()
@@ -33,18 +32,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-
-        binding.btnAddProduct.setOnClickListener {
-            val intent = Intent(requireContext(), UploadActivity::class.java)
-            requireActivity().startActivity(intent)
-        }
-
-        viewModel.getSession().observe(viewLifecycleOwner) { user ->
-            if (user.isLogin){
-                binding.tvUsername.text = user.username
-            }
-        }
+        binding = FragmentHistoryBinding.inflate(layoutInflater, container, false)
 
         setupRecyclerView()
         setupViewModel()
@@ -54,9 +42,9 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView(){
         binding.apply {
-            rvHistoryHome.layoutManager = LinearLayoutManager(activity)
-            rvHistoryHome.setHasFixedSize(true)
-            rvHistoryHome.adapter = adapter
+            rvHistory.layoutManager = LinearLayoutManager(activity)
+            rvHistory.setHasFixedSize(true)
+            rvHistory.adapter = adapter
 
             adapter.setOnItemClickCallback{ data -> selectedData(data)}
         }
@@ -78,11 +66,11 @@ class HomeFragment : Fragment() {
             if (allProducts.size != 0){
                 val sortedProducts = allProducts.sortedByDescending { DateUtils.parseDate(it.date)}
 
-                binding.rvHistoryHome.visibility = View.VISIBLE
+                binding.rvHistory.visibility = View.VISIBLE
                 adapter.getDataProduct(ArrayList(sortedProducts))
                 //disini loading (false)
             }else{
-                binding.rvHistoryHome.visibility = View.GONE
+                binding.rvHistory.visibility = View.GONE
                 Toast.makeText(requireActivity().application, "Ada error mas", Toast.LENGTH_SHORT).show()
             }
         }

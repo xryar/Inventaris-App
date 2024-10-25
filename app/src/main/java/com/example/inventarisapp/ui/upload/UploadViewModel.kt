@@ -24,12 +24,11 @@ class UploadViewModel: ViewModel() {
         productName: RequestBody,
         category: RequestBody,
         quantity: RequestBody,
-        price: RequestBody,
-        date: RequestBody
+        price: RequestBody
     ) {
         val client = ApiConfig.getApiService().sendProducts(
             token, multipartBody, productName, category,
-            quantity, price, date
+            quantity, price
         )
 
         client.enqueue(object : Callback<UploadResponse> {
