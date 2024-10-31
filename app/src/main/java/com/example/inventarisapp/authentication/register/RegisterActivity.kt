@@ -49,6 +49,11 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setupAction(){
+        binding.tvMoveToLogin.setOnClickListener {
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnRegister.setOnClickListener {
             val username = binding.NameEditText.text.toString()
             val email = binding.EmailEditText.text.toString()

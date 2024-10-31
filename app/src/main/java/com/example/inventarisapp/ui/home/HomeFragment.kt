@@ -73,19 +73,23 @@ class HomeFragment : Fragment() {
         val token = tokenSession.passToken().toString()
         Log.d("TokenSession", "Retrieved Token: Bearer $token")
         viewModel.getProducts("Bearer $token")
-        //disini loading(true)
+        showLoading(true)
         viewModel.getAllProducts.observe(viewLifecycleOwner){ allProducts ->
             if (allProducts.size != 0){
-                val sortedProducts = allProducts.sortedByDescending { DateUtils.parseDate(it.date)}
+                showLoading(false)
+                val sortedProducts = allProducts.sortedByDescending { DateUtils.parseDate(it.date)}.take(5)
 
                 binding.rvHistoryHome.visibility = View.VISIBLE
                 adapter.getDataProduct(ArrayList(sortedProducts))
-                //disini loading (false)
             }else{
                 binding.rvHistoryHome.visibility = View.GONE
-                Toast.makeText(requireActivity().application, "Ada error mas", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity().application, "Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showLoading(isLoading: Boolean){
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onResume() {

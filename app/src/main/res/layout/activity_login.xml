@@ -107,27 +107,18 @@
             tools:ignore="SpeakableTextPresentCheck"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-    
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/forgot_your_password"
-        android:textSize="14sp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ed_password" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="315dp"
         android:layout_height="50dp"
         android:text="@string/sign_in"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_button"
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password"/>
+        app:layout_constraintTop_toBottomOf="@id/ed_password"/>
 
     <TextView
         android:id="@+id/tv_dont_have_account"

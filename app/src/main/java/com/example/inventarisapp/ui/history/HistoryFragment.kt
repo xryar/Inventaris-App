@@ -15,6 +15,7 @@ import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.data.response.ProductsItem
 import com.example.inventarisapp.databinding.FragmentHistoryBinding
 import com.example.inventarisapp.ui.adapter.HistoryAdapter
+import com.example.inventarisapp.ui.adapter.HistoryFullAdapter
 import com.example.inventarisapp.ui.detail.DetailActivity
 import com.example.inventarisapp.utils.DateUtils
 
@@ -24,7 +25,7 @@ class HistoryFragment : Fragment() {
     private val viewModel by viewModels<HistoryViewModel> {
         ViewModelFactory.getInstance(requireActivity().application)
     }
-    private val adapter = HistoryAdapter()
+    private val adapter = HistoryFullAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,19 +62,23 @@ class HistoryFragment : Fragment() {
         val token = tokenSession.passToken().toString()
         Log.d("TokenSession", "Retrieved Token: Bearer $token")
         viewModel.getProducts("Bearer $token")
-        //disini loading(true)
+        showLoading(true)
         viewModel.getAllProducts.observe(viewLifecycleOwner){ allProducts ->
             if (allProducts.size != 0){
+                showLoading(false)
                 val sortedProducts = allProducts.sortedByDescending { DateUtils.parseDate(it.date)}
 
                 binding.rvHistory.visibility = View.VISIBLE
                 adapter.getDataProduct(ArrayList(sortedProducts))
-                //disini loading (false)
             }else{
                 binding.rvHistory.visibility = View.GONE
-                Toast.makeText(requireActivity().application, "Ada error mas", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity().application, "Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showLoading(isLoading: Boolean){
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onResume() {
