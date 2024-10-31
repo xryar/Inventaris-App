@@ -11,6 +11,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.inventarisapp.MainActivity
 import com.example.inventarisapp.ViewModelFactory
 import com.example.inventarisapp.authentication.login.TokenSession
 import com.example.inventarisapp.databinding.ActivityUploadBinding
@@ -124,7 +125,7 @@ class UploadActivity : AppCompatActivity() {
                     setTitle("Yeah!")
                     setMessage("Anda berhasil upload")
                     setPositiveButton("Kembali") { _, _ ->
-                        val intent = Intent(context, HomeFragment::class.java)
+                        val intent = Intent(context, MainActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                         finish()

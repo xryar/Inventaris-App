@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.inventarisapp.data.response.ProductsItem
 import com.example.inventarisapp.databinding.ActivityDetailBinding
+import com.example.inventarisapp.utils.CurrencyUtils
 import com.example.inventarisapp.utils.DateUtils
 
 class DetailActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
                 tvProductName.text = detail.productName
                 tvCategory.text = detail.category
                 tvQuantity.text = detail.quantity.toString()
-                tvTotalPrice.text = detail.totalPrice.toString()
+                tvTotalPrice.text = CurrencyUtils.formatToRupiah(detail.totalPrice)
                 tvDate.text = DateUtils.formatDateString(detail.date)
                 Glide.with(this@DetailActivity)
                     .load(detail.image)

@@ -29,10 +29,6 @@ class ProfileFragment : Fragment() {
         setupViewModel()
         setupAction()
 
-        Glide.with(this)
-            .load(R.drawable.defaultprofile)
-            .into(binding.ivPhoto)
-
         return binding.root
     }
 
