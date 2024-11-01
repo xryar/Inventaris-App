@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1F1F5"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
@@ -41,6 +42,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_greetings"/>
 
+    <ImageView
+        android:id="@+id/logo_inven"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/inven_logo"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_add_product"
         android:layout_width="wrap_content"
@@ -54,11 +65,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_greetings2"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_add_product"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:text="@string/plus_add_product"
+        android:text="@string/add_product"
         android:textColor="@color/white"
         android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
