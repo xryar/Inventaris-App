@@ -23,7 +23,7 @@ class HistoryFullAdapter : RecyclerView.Adapter<HistoryFullAdapter.HistoryFullVi
         diffResult.dispatchUpdatesTo(this)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryFullAdapter.HistoryFullViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryFullViewHolder {
         val binding = ListHistory2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HistoryFullViewHolder(binding)
     }
@@ -32,7 +32,7 @@ class HistoryFullAdapter : RecyclerView.Adapter<HistoryFullAdapter.HistoryFullVi
         return listProduct.size
     }
 
-    override fun onBindViewHolder(holder: HistoryFullAdapter.HistoryFullViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HistoryFullViewHolder, position: Int) {
         val products = listProduct[position]
         holder.bind(products)
         holder.itemView.setOnClickListener {
@@ -52,17 +52,17 @@ class HistoryFullAdapter : RecyclerView.Adapter<HistoryFullAdapter.HistoryFullVi
             _binding.tvDate2.text = DateUtils.formatDateString(products.date)
 
             val categoryIcon = when(products.category){
-                "Elektronik" -> R.drawable.elektronik
-                "Pakaian" -> R.drawable.pakaian
-                "Makanan dan Minuman" -> R.drawable.makanan
-                "Alat Tulis dan Perlengkapan Kantor" -> R.drawable.peralatankantor
-                "Peralatan Rumah Tangga" -> R.drawable.peralatanrumah
-                "Bahan Bangunan" -> R.drawable.bahanbangunan
-                "Kendaraan dan Aksesori" -> R.drawable.kendaraan
-                "Peralatan Olahraga" -> R.drawable.peralatanolahraga
-                "Mainan dan Hobi" -> R.drawable.mainan
-                "Kesehatan dan Kecantikan" -> R.drawable.cosmetic
-                else -> R.drawable.defaultimage
+                "Elektronik" -> R.drawable.electronics
+                "Pakaian" -> R.drawable.clothes
+                "Makanan dan Minuman" -> R.drawable.food
+                "Alat Tulis dan Perlengkapan Kantor" -> R.drawable.office
+                "Peralatan Rumah Tangga" -> R.drawable.household
+                "Bahan Bangunan" -> R.drawable.construction
+                "Kendaraan dan Aksesori" -> R.drawable.vehicle
+                "Peralatan Olahraga" -> R.drawable.sports
+                "Mainan dan Hobi" -> R.drawable.game_hobby
+                "Kesehatan dan Kecantikan" -> R.drawable.cosmetics
+                else -> R.drawable.default_icon
             }
             _binding.ivIcon2.setImageResource(categoryIcon)
         }
