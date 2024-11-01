@@ -23,7 +23,7 @@ class HistoryFullAdapter : RecyclerView.Adapter<HistoryFullAdapter.HistoryFullVi
         diffResult.dispatchUpdatesTo(this)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryFullAdapter.HistoryFullViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryFullViewHolder {
         val binding = ListHistory2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HistoryFullViewHolder(binding)
     }
@@ -32,7 +32,7 @@ class HistoryFullAdapter : RecyclerView.Adapter<HistoryFullAdapter.HistoryFullVi
         return listProduct.size
     }
 
-    override fun onBindViewHolder(holder: HistoryFullAdapter.HistoryFullViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HistoryFullViewHolder, position: Int) {
         val products = listProduct[position]
         holder.bind(products)
         holder.itemView.setOnClickListener {
