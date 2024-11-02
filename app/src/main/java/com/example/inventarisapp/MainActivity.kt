@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
