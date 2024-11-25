@@ -4,6 +4,8 @@ InventarisHub is an item management application that makes it easy for users to 
 * View historical item data to make finding information related to item usage easier.
 * Displays a detailed list of items, including stock information, prices, and item categories.
 
+# Preview
+
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
 
 <img src="https://github.com/xryar/assets/blob/master/InventarisHub/login.png"  width="250" height="500">
